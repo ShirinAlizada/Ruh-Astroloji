@@ -1,0 +1,79 @@
+@import "tailwindcss";
+
+/* Virgo Astrology dizayn sistemi — "destiny-reads-app" (köhnə tətbiq, "Virgo
+   Astrology" dizayn istiqaməti: "Celestial Dark") əsasında BİRƏ-BİR köçürülüb.
+   Token adları köhnə tətbiqlə eynidir ki, kod parçaları birbaşa köçürülə bilsin:
+   bg-ink / bg-ink2 / bg-celestial-card / text-gold / text-goldsoft / text-violet
+   / text-mist, font-display (Cormorant Garamond) / font-sans (Manrope).
+   Google Fonts linki index.html-dədir. */
+@theme {
+  --font-sans: "Manrope", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --font-display: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+
+  --color-ink: #0a0918;
+  --color-ink2: #14112e;
+  --color-celestial-card: #1b1740;
+  --color-gold: #d4af37;
+  --color-goldsoft: #e7ce88;
+  --color-violet: #8b7bef;
+  --color-mist: #a7a2c6;
+
+  --animate-star-twinkle-a: star-twinkle-a 6s ease-in-out infinite;
+  --animate-star-twinkle-b: star-twinkle-b 8s ease-in-out infinite;
+  --animate-star-twinkle-c: star-twinkle-c 10s ease-in-out infinite;
+  --animate-planet-drift-a: planet-drift-a 40s ease-in-out infinite;
+  --animate-planet-drift-b: planet-drift-b 55s ease-in-out infinite;
+  --animate-page-enter: page-enter 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+  --animate-rise-in: rise-in 0.45s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  background: var(--color-ink);
+  color: #f3efe6;
+  font-family: "Manrope", "Segoe UI", system-ui, sans-serif;
+}
+
+@keyframes star-twinkle-a {
+  0%, 100% { opacity: 0.35; }
+  50% { opacity: 0.7; }
+}
+@keyframes star-twinkle-b {
+  0%, 100% { opacity: 0.45; }
+  50% { opacity: 0.85; }
+}
+@keyframes star-twinkle-c {
+  0%, 100% { opacity: 0.55; }
+  50% { opacity: 1; }
+}
+@keyframes planet-drift-a {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(24px, 16px); }
+}
+@keyframes planet-drift-b {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(-20px, -14px); }
+}
+@keyframes page-enter {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes rise-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-star-twinkle-a,
+  .animate-star-twinkle-b,
+  .animate-star-twinkle-c,
+  .animate-planet-drift-a,
+  .animate-planet-drift-b,
+  .animate-page-enter,
+  .animate-rise-in {
+    animation: none !important;
+  }
+}
